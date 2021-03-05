@@ -1,0 +1,14 @@
+<svg width="25" height="25" xmlns="http://www.w3.org/2000/svg">
+ <g>
+  <title>Layer 1</title>
+  <line fill="none" stroke="#000" stroke-width="5" stroke-dasharray="null" stroke-opacity="null" fill-opacity="null" opacity="undefined" x1="248.7246" y1="248.51843" x2="220.42268" y2="307.00906" id="svg_15" stroke-linejoin="null" stroke-linecap="null"/>
+  <line fill="none" stroke="#000" stroke-width="5" stroke-dasharray="null" stroke-opacity="null" fill-opacity="null" opacity="undefined" x1="243.69314" y1="276.82035" x2="265.07681" y2="276.19142" id="svg_18" stroke-linejoin="null" stroke-linecap="null"/>
+  <line fill="none" stroke="#000" stroke-width="5" stroke-dasharray="null" stroke-opacity="null" opacity="undefined" x1="274.51079" y1="247.26057" x2="274.51079" y2="309.52479" id="svg_19" stroke-linejoin="null" stroke-linecap="null"/>
+  <text stroke="#000" transform="matrix(0.7871094045032621,0,0,0.7871094045032621,0.8299321133029056,-9.47509482085483) " font-style="normal" font-weight="normal" filter="url(#svg_5_blur)" xml:space="preserve" text-anchor="start" font-family="'Quicksand'" font-size="24" id="svg_5" y="36.10548" x="1.58689" opacity="undefined" fill-opacity="null" stroke-opacity="null" stroke-dasharray="null" stroke-width="0" fill="#000000">/-|</text>
+ </g>
+ <defs>
+  <filter id="svg_5_blur">
+   <feGaussianBlur stdDeviation="0" in="SourceGraphic"/>
+  </filter>
+ </defs>
+</svg>
