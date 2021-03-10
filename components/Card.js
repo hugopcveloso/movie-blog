@@ -1,7 +1,7 @@
 import React from 'react'
 
 import styled from '@emotion/styled'
-
+import Link from 'next/link'
 function Card({ movie }) {
   const { API_URL } = process.env
   return (
@@ -17,6 +17,12 @@ function Card({ movie }) {
         <h3>{movie.title}</h3>
         <p dangerouslySetInnerHTML={{ __html: movie.description }} />
       </div>
+      <Link
+        href="/movies/[genre]/[slug]"
+        as={`/movies/${movie.genre.slug}/${movie.slug}`}
+      >
+        <a>More about this movie</a>
+      </Link>
     </CardStyled>
   )
 }
@@ -32,6 +38,10 @@ const CardStyled = styled.div`
     width: 100%;
     height: 40vw;
     object-fit: cover;
+  }
+  a {
+    display: inline-block;
+    margin: 20px 0;
   }
 `
 export default Card

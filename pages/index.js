@@ -14,6 +14,7 @@ const Home = ({ movies }) => {
       <Flex
         justifyContent="space-between"
         flexDirection={{ _: 'column', 1: 'row', 2: 'row' }}
+        mb={100}
       >
         {movies.map(movie => (
           <Box key={movie.id} width={{ _: '100%', 1: '30%' }}>

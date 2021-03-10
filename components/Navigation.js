@@ -3,26 +3,20 @@ import Link from 'next/link'
 import styled from '@emotion/styled'
 import { useRouter } from 'next/router'
 
-function Navigation() {
+function Navigation({ navigation }) {
   const router = useRouter()
   return (
     <NavigationStyled>
       <ul>
-        <li>
-          <Link href="/about">
-            <a className={router.pathname === '/about' ? 'active' : ''}>
-              About
-            </a>
-          </Link>
-          <Link href="/contact">
-            <a className={router.pathname === '/contact' ? 'active' : ''}>
-              Contact
-            </a>
-          </Link>
-          <Link href="/blog">
-            <a className={router.pathname === '/blog' ? 'active' : ''}>Blog</a>
-          </Link>
-        </li>
+        {navigation.map(link => (
+          <li key={link.id}>
+            <Link href={link.slug}>
+              <a className={router.pathname === link.slug ? 'active' : ''}>
+                {link.title}
+              </a>
+            </Link>
+          </li>
+        ))}
       </ul>
     </NavigationStyled>
   )

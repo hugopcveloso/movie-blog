@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import { Flex, Box } from 'reflexbox'
 import Navigation from 'components/Navigation'
 import Link from 'next/link'
-function Header({ isDark }) {
+function Header({ isDark, navigation }) {
   return (
     <HeaderStyled isDark={isDark}>
       <Box variant="container">
@@ -11,12 +11,12 @@ function Header({ isDark }) {
           <div className="logo">
             <Link href="/">
               <a>
-                <img src="static/images/logo.svg" alt="Sites Logo" />
+                <img src="/static/images/logo.svg" alt="Sites Logo" />
                 <span className="logo-text">Next Movies</span>
               </a>
             </Link>
           </div>
-          <Navigation />
+          <Navigation navigation={navigation} />
         </Flex>
       </Box>
     </HeaderStyled>
