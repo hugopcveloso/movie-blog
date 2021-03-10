@@ -4,14 +4,22 @@ import styled from '@emotion/styled'
 import Link from 'next/link'
 function Card({ movie }) {
   const { API_URL } = process.env
+
+  if (!movie.genre) {
+    movie.genre = {}
+    movie.genre.slug = 'uncategorized'
+  }
+
   return (
     <CardStyled>
       <div className="poster">
-        <img
-          className="card-image"
-          src={API_URL + movie.poster.url}
-          alt={`${movie.title} poster`}
-        />
+        {movie.poster && (
+          <img
+            className="card-image"
+            src={API_URL + movie.poster.url}
+            alt={`${movie.title} poster`}
+          />
+        )}
       </div>
       <div className="body">
         <h3>{movie.title}</h3>
@@ -34,12 +42,16 @@ const CardStyled = styled.div`
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  .body {
+    padding: 10px;
+  }
   .card-image {
     width: 100%;
     height: 40vw;
     object-fit: cover;
   }
   a {
+    padding: 10px;
     display: inline-block;
     margin: 20px 0;
   }

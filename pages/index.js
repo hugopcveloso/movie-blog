@@ -15,6 +15,7 @@ const Home = ({ movies }) => {
         justifyContent="space-between"
         flexDirection={{ _: 'column', 1: 'row', 2: 'row' }}
         mb={100}
+        flexWrap="wrap"
       >
         {movies.map(movie => (
           <Box key={movie.id} width={{ _: '100%', 1: '30%' }}>
@@ -36,8 +37,8 @@ export async function getServerSideProps() {
 
   return {
     props: {
-      movies: data
-    }
+      movies: data,
+    },
   }
 }
 

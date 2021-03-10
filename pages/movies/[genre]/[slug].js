@@ -2,15 +2,27 @@ import React from 'react'
 
 import { Box, Flex } from 'reflexbox'
 import getConfig from 'next/config'
+import { NextSeo } from 'next-seo'
+
 function Movie({ movie }) {
-  console.log(movie)
+  const SEO = {
+    title: `Next Movies | ${movie.title}`,
+    description: `${movie.description}`,
+    openGraph: {
+      title: `Next Movies | ${movie.title}`,
+      description: `${movie.description}`,
+    },
+  }
   return (
-    <Box className="container">
-      <Box as="h2" my={40}>
-        {movie.title}
+    <>
+      <NextSeo {...SEO} />
+      <Box className="container">
+        <Box as="h2" my={40}>
+          {movie.title}
+        </Box>
+        <Box maxWidth={600}>{movie.description}</Box>
       </Box>
-      <Box maxWidth={600}>{movie.description}</Box>
-    </Box>
+    </>
   )
 }
 
@@ -24,8 +36,8 @@ export async function getServerSideProps(context) {
 
   return {
     props: {
-      movie: data[0]
-    }
+      movie: data[0],
+    },
   }
 }
 
