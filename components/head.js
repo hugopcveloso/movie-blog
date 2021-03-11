@@ -56,7 +56,7 @@ Head.propTypes = {
   description: string,
   keywords: string,
   url: string,
-  ogImage: string
+  ogImage: string,
 }
 
 export default Head
