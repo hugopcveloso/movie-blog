@@ -28,10 +28,11 @@ function MyApp({ Component, pageProps, navigation }) {
   )
 }
 
-const { publicRuntimeConfig } = getConfig()
 //we cannot use getServerSideProps here, just getinitial
 
 MyApp.getInitialProps = async () => {
+  const { publicRuntimeConfig } = getConfig()
+
   const res = await fetch(`${publicRuntimeConfig.API_URL}/navigations`)
   const navigation = await res.json()
 

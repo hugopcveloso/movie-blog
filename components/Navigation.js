@@ -8,7 +8,7 @@ import HeaderContext from '../contexts/HeaderContext'
 function Navigation() {
   const router = useRouter()
   const { menuItems, color } = useContext(HeaderContext)
-
+  console.log(router.pathname)
   return (
     <NavigationStyled color={color}>
       <ul>

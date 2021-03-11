@@ -1,6 +1,5 @@
 import React from 'react'
 import Link from 'next/link'
-import fetch from 'isomorphic-unfetch'
 import Card from 'components/Card'
 import { Flex, Box } from 'reflexbox'
 import styled from '@emotion/styled'
