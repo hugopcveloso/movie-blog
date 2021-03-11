@@ -7,6 +7,11 @@ import styled from '@emotion/styled'
 
 const Home = ({ movies }) => {
   return (
+    // <>
+    //   <h2>this is a test</h2>
+    //   <p>to see if works</p>
+    // </>
+
     <HomeStyled className="container">
       <Box my={40} as="h2">
         Latest Movies
@@ -30,7 +35,7 @@ const Home = ({ movies }) => {
 const HomeStyled = styled.div``
 
 export async function getServerSideProps() {
-  const { API_URL } = process.env
+  const API_URL = process.env.API_URL
 
   const res = await fetch(`${API_URL}/movies`)
   const data = await res.json()

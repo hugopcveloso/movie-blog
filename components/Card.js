@@ -3,7 +3,7 @@ import React from 'react'
 import styled from '@emotion/styled'
 import Link from 'next/link'
 function Card({ movie }) {
-  const { API_URL } = process.env
+  const API_URL = process.env.API_URL
 
   if (!movie.genre) {
     movie.genre = {}

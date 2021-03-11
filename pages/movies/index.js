@@ -35,7 +35,7 @@ function MoviesPage({ movies, page, numberOfMovies }) {
 }
 
 export async function getServerSideProps({ query: { page = 1 } }) {
-  const { API_URL } = process.env
+  const API_URL = process.env.API_URL
 
   const start = +page === 1 ? 0 : (+page - 1) * 3
 
