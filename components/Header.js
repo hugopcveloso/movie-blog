@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import { Flex, Box } from 'reflexbox'
 import Navigation from 'components/Navigation'
 import Link from 'next/link'
-import ToggleNavigationColorButton from 'components/ToggleNavigationColorButton'
+//import ToggleNavigationColorButton from 'components/ToggleNavigationColorButton'
 
 function Header({ isDark }) {
   return (
@@ -19,7 +19,7 @@ function Header({ isDark }) {
             </Link>
           </div>
           <Navigation />
-          <ToggleNavigationColorButton />
+          {/* <ToggleNavigationColorButton /> */}
         </Flex>
       </Box>
     </HeaderStyled>
