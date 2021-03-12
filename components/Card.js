@@ -9,14 +9,19 @@ function Card({ movie }) {
     movie.genre = {}
     movie.genre.slug = 'uncategorized'
   }
-
+  let imageLink
+  if (process.env.NODE_ENV === 'development') {
+    imageLink = API_URL + movie.poster.url
+  } else {
+    imageLink = movie.poster.url
+  }
   return (
     <CardStyled>
       <div className="poster">
         {movie.poster && (
           <img
             className="card-image"
-            src={movie.poster.url}
+            src={imageLink}
             alt={`${movie.title} poster`}
           />
         )}
