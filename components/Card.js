@@ -16,7 +16,7 @@ function Card({ movie }) {
         {movie.poster && (
           <img
             className="card-image"
-            src={API_URL + movie.poster.url}
+            src={movie.poster.url}
             alt={`${movie.title} poster`}
           />
         )}
