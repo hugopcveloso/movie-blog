@@ -8,7 +8,10 @@ module.exports = {
   publicRuntimeConfig: {
     API_URL: process.env.API_URL,
   },
-
+  i18n: {
+    locales: ['en-US', 'pt-PT'],
+    defaultLocale: 'pt-PT',
+  },
   webpack: config => {
     config.node = {
       fs: 'empty',

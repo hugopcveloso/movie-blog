@@ -3,8 +3,15 @@ import Link from 'next/link'
 import Card from 'components/Card'
 import { Flex, Box } from 'reflexbox'
 import styled from '@emotion/styled'
+import { useRouter } from 'next/router'
+import en_US from '../public/static/locales/en_US'
+import pt_PT from '../public/static/locales/pt_PT'
 
-const Home = ({ movies }) => {
+const Home = ({ movies, t }) => {
+  const router = useRouter()
+  //  const { locale } = router
+  // console.log(locale)
+  //const t = locale === 'en' ? en_US : locale === 'pt-PT' ? pt_PT : en_US
   return (
     // <>
     //   <h2>this is a test</h2>
@@ -13,7 +20,7 @@ const Home = ({ movies }) => {
 
     <HomeStyled className="container">
       <Box my={40} as="h2">
-        Latest Movies
+        {t.title}
       </Box>
       <Flex
         justifyContent="space-between"
@@ -33,15 +40,16 @@ const Home = ({ movies }) => {
 
 const HomeStyled = styled.div``
 
-export async function getServerSideProps() {
+export async function getServerSideProps({ locale }) {
   const API_URL = process.env.API_URL
-
   const res = await fetch(`${API_URL}/movies`)
   const data = await res.json()
+  let t = locale === 'en' ? en_US : locale === 'pt-PT' ? pt_PT : en_US
 
   return {
     props: {
       movies: data,
+      t: t,
     },
   }
 }

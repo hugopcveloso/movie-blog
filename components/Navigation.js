@@ -7,10 +7,10 @@ import HeaderContext from '../contexts/HeaderContext'
 
 function Navigation() {
   const router = useRouter()
-  const { menuItems, color } = useContext(HeaderContext)
+  const { menuItems } = useContext(HeaderContext)
   console.log(router.pathname)
   return (
-    <NavigationStyled color={color}>
+    <NavigationStyled>
       <ul>
         {menuItems.map(link => (
           <li key={link.id}>
@@ -38,7 +38,7 @@ const NavigationStyled = styled.div`
     a {
       text-decoration: none;
       /* color: #4c9ee3; */
-      color: ${props => (props.color ? '#4C9EE3' : 'red')};
+      color: '#4C9EE3';
       &:hover {
         text-decoration: underline;
       }
