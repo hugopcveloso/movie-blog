@@ -5,7 +5,6 @@ import { useRouter } from 'next/router'
 
 function MoviesPage({ movies, page, numberOfMovies }) {
   const router = useRouter()
-  console.log(router.query)
   const lastPage = Math.ceil(numberOfMovies / 3)
   return (
     <Box className="container" pt={40}>

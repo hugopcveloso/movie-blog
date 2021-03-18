@@ -12,6 +12,7 @@ import fetch from 'isomorphic-unfetch'
 import { DefaultSeo } from 'next-seo'
 import SEO from '../next-seo.config'
 import ContextWrapper from 'components/ContextWrapper'
+import Footer from 'components/Footer'
 
 function MyApp({ Component, pageProps, navigation }) {
   return (
@@ -22,7 +23,10 @@ function MyApp({ Component, pageProps, navigation }) {
         <ContextWrapper navigation={navigation}>
           <Header />
         </ContextWrapper>
+
         <Component {...pageProps} />
+
+        <Footer />
       </ThemeProvider>
     </>
   )

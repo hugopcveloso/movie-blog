@@ -1,0 +1,8 @@
+{
+  "locales": ["en-US", "pt-PT"],
+  "defaultLocale": "pt-PT",
+  "pages": {
+    "*": ["common"],
+    "/contact": ["contact"]
+  }
+}

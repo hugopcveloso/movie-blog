@@ -363,6 +363,7 @@ const GlobalStyles = () => (
           width: 100%;
           margin: 0 auto;
           padding: 30px;
+          min-height: calc(100vh - 59.965px - 90px);
         }
         button {
           border: 1px solid #ccc;

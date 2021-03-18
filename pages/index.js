@@ -4,11 +4,12 @@ import Card from 'components/Card'
 import { Flex, Box } from 'reflexbox'
 import styled from '@emotion/styled'
 import { useRouter } from 'next/router'
-import en_US from '../public/static/locales/en_US'
-import pt_PT from '../public/static/locales/pt_PT'
+import useTranslation from 'next-translate/useTranslation'
 
-const Home = ({ movies, t }) => {
+const Home = ({ movies }) => {
+  let { t } = useTranslation()
   const router = useRouter()
+  console.log(t('common:title'))
   //  const { locale } = router
   // console.log(locale)
   //const t = locale === 'en' ? en_US : locale === 'pt-PT' ? pt_PT : en_US
@@ -20,7 +21,7 @@ const Home = ({ movies, t }) => {
 
     <HomeStyled className="container">
       <Box my={40} as="h2">
-        {t.title}
+        {t('common:title')}
       </Box>
       <Flex
         justifyContent="space-between"
@@ -44,12 +45,10 @@ export async function getServerSideProps({ locale }) {
   const API_URL = process.env.API_URL
   const res = await fetch(`${API_URL}/movies`)
   const data = await res.json()
-  let t = locale === 'en' ? en_US : locale === 'pt-PT' ? pt_PT : en_US
 
   return {
     props: {
       movies: data,
-      t: t,
     },
   }
 }

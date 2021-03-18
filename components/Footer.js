@@ -5,27 +5,25 @@ import { useRouter } from 'next/router'
 import { useContext } from 'react'
 import HeaderContext from '../contexts/HeaderContext'
 
-function Navigation() {
+function Footer() {
   const router = useRouter()
-  const { menuItems } = useContext(HeaderContext)
   return (
-    <NavigationStyled>
+    <FooterStyled>
       <ul>
-        {menuItems.map(link => (
-          <li key={link.id}>
-            <Link href={link.slug}>
-              <a className={router.pathname === link.slug ? 'active' : ''}>
-                {link.title}
-              </a>
-            </Link>
-          </li>
+        {router.locales.map((locale, i) => (
+          <Link key={i} href={router.asPath} locale={locale}>
+            <a> {locale} </a>
+          </Link>
         ))}
       </ul>
-    </NavigationStyled>
+    </FooterStyled>
   )
 }
 
-const NavigationStyled = styled.div`
+const FooterStyled = styled.div`
+  height: 50px;
+  background-color: lightblue;
+  padding: 20px;
   ul {
     list-style: none;
     padding: 0;
@@ -48,4 +46,4 @@ const NavigationStyled = styled.div`
   }
 `
 
-export default Navigation
+export default Footer

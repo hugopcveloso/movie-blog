@@ -1,17 +1,15 @@
 const path = require('path')
+const nextTranslate = require('next-translate')
 require('dotenv').config()
 
-module.exports = {
+const config = {
   env: {
     API_URL: process.env.API_URL,
   },
   publicRuntimeConfig: {
     API_URL: process.env.API_URL,
   },
-  i18n: {
-    locales: ['en-US', 'pt-PT'],
-    defaultLocale: 'pt-PT',
-  },
+
   webpack: config => {
     config.node = {
       fs: 'empty',
@@ -21,3 +19,4 @@ module.exports = {
     return config
   },
 }
+module.exports = nextTranslate(config)
