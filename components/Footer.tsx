@@ -10,7 +10,7 @@ function Footer() {
   return (
     <FooterStyled>
       <ul>
-        {router.locales.map((locale, i) => (
+        {router?.locales?.map((locale, i) => (
           <Link key={i} href={router.asPath} locale={locale}>
             <a> {locale} </a>
           </Link>

@@ -1,5 +1,5 @@
 import HeaderContext from '../contexts/HeaderContext'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 function ContextWrapper({ children, navigation }) {
   const [menuItems] = useState(navigation)

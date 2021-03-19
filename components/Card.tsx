@@ -2,7 +2,22 @@ import React from 'react'
 
 import styled from '@emotion/styled'
 import Link from 'next/link'
-function Card({ movie }) {
+
+export interface CardProps {
+  movie: {
+    title: string
+    genre: {
+      slug?: string
+    }
+    slug: string
+    poster: {
+      url: string
+    }
+    description: string
+  }
+}
+
+function Card({ movie }: CardProps) {
   const API_URL = process.env.API_URL
 
   if (!movie.genre) {

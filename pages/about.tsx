@@ -2,12 +2,16 @@ import React from 'react'
 import { NextSeo } from 'next-seo'
 import { Box } from 'reflexbox'
 
-function About({ page }) {
+export interface AboutProps {
+  page: AboutFetch
+}
+
+function About({ page }: AboutProps) {
   const SEO = {
-    title: page.title,
+    title: page?.title,
     description: 'Just your normal about page',
     openGraph: {
-      title: page.title,
+      title: page?.title,
       description: 'Just your normal about page',
     },
   }
@@ -16,7 +20,7 @@ function About({ page }) {
       <NextSeo {...SEO} />
       <Box className="container">
         <Box as="h2" my={40}>
-          {page.title}
+          {page?.title}
         </Box>
         <div dangerouslySetInnerHTML={{ __html: page.content }} />
       </Box>
@@ -24,10 +28,15 @@ function About({ page }) {
   )
 }
 
+export interface AboutFetch {
+  title: string
+  content: string
+}
+
 export async function getStaticProps() {
   const API_URL = process.env.API_URL
   const res = await fetch(`${API_URL}/pages/1`)
-  const data = await res.json()
+  const data: AboutFetch | undefined = await res.json()
 
   return {
     props: {

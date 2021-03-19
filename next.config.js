@@ -1,5 +1,6 @@
 const path = require('path')
 const nextTranslate = require('next-translate')
+
 require('dotenv').config()
 
 const config = {
