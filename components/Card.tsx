@@ -2,6 +2,7 @@ import React from 'react'
 
 import styled from '@emotion/styled'
 import Link from 'next/link'
+import theme from '../theme/theme'
 
 export interface CardProps {
   movie: {
@@ -67,8 +68,13 @@ const CardStyled = styled.div`
   }
   .card-image {
     width: 100%;
-    height: 40vw;
     object-fit: cover;
+    ${theme.mq[0]} {
+      height: 30vh;
+    }
+    ${theme.mq[2]} {
+      height: 40vh;
+    }
   }
   a {
     padding: 10px;

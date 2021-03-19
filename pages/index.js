@@ -3,30 +3,26 @@ import Link from 'next/link'
 import Card from 'components/Card'
 import { Flex, Box } from 'reflexbox'
 import styled from '@emotion/styled'
-
 import { useRouter } from 'next/router'
 import useTranslation from 'next-translate/useTranslation'
+import TagsMenu from 'components/TagsMenu'
 
-const Home = ({ movies }) => {
+const Home = ({ movies, tags }) => {
   let { t } = useTranslation()
   const router = useRouter()
   console.log(t('common:title'))
-  //  const { locale } = router
-  // console.log(locale)
-  //const t = locale === 'en' ? en_US : locale === 'pt-PT' ? pt_PT : en_US
   return (
-    // <>
-    //   <h2>this is a test</h2>
-    //   <p>to see if works</p>
-    // </>
-
     <HomeStyled className="container">
       <Box my={40} as="h2">
         {t('common:title')}
       </Box>
+      <Box my={40}>
+        <TagsMenu tags={tags} />
+      </Box>
+
       <Flex
         justifyContent="space-between"
-        flexDirection={{ _: 'column', 1: 'row', 2: 'row' }}
+        flexDirection={{ _: 'column', md: 'row', lg: 'row' }}
         mb={100}
         flexWrap="wrap"
       >
@@ -42,14 +38,18 @@ const Home = ({ movies }) => {
 
 const HomeStyled = styled.div``
 
-export async function getServerSideProps({ locale }) {
+export async function getServerSideProps() {
   const API_URL = process.env.API_URL
   const res = await fetch(`${API_URL}/movies`)
   const data = await res.json()
 
+  const fetchTags = await fetch(`${API_URL}/tags`)
+  const tagsData = await fetchTags.json()
+
   return {
     props: {
       movies: data,
+      tags: tagsData,
     },
   }
 }
