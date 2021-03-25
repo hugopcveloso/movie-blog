@@ -42,9 +42,8 @@ const TagsMenu = ({ tags }) => {
     <motion.div variants={container} initial="hidden" animate="show">
       <TagsContainer>
         {tags.map(({ tag_name, id, slug }, i) => {
-          console.log(i)
           return (
-            <motion.div variants={item} className="list">
+            <motion.div variants={item} className="list" key={id}>
               <Link href={`/tags/${slug}`} key={id}>
                 <a className="tag-button">{tag_name}</a>
               </Link>

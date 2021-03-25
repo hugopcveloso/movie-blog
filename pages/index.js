@@ -9,7 +9,6 @@ import TagsMenu from 'components/TagsMenu'
 
 const Home = ({ movies, tags }) => {
   let { t } = useTranslation()
-  const router = useRouter()
   console.log(t('common:title'))
   return (
     <HomeStyled className="container">

@@ -13,6 +13,9 @@ import { DefaultSeo } from 'next-seo'
 import SEO from '../next-seo.config'
 import ContextWrapper from 'components/ContextWrapper'
 import Footer from 'components/Footer'
+import { QueryClientProvider, QueryClient } from 'react-query'
+
+const queryClient = new QueryClient()
 
 function MyApp({ Component, pageProps, navigation }) {
   return (
@@ -23,8 +26,9 @@ function MyApp({ Component, pageProps, navigation }) {
         <ContextWrapper navigation={navigation}>
           <Header />
         </ContextWrapper>
-
-        <Component {...pageProps} />
+        <QueryClientProvider client={queryClient}>
+          <Component {...pageProps} />
+        </QueryClientProvider>
 
         <Footer />
       </ThemeProvider>
