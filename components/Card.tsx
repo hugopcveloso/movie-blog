@@ -3,22 +3,10 @@ import React from 'react'
 import styled from '@emotion/styled'
 import Link from 'next/link'
 import theme from '../theme/theme'
+import Ratings from 'components/Ratings'
+import IMovie from './interfaces/interfaces'
 
-export interface CardProps {
-  movie: {
-    title: string
-    genre: {
-      slug?: string
-    }
-    slug: string
-    poster: {
-      url: string
-    }
-    description: string
-  }
-}
-
-function Card({ movie }: CardProps) {
+function Card({ movie }: IMovie) {
   const API_URL = process.env.API_URL
 
   if (!movie.genre) {
@@ -42,6 +30,12 @@ function Card({ movie }: CardProps) {
           />
         )}
       </div>
+      {movie.my_rating && (
+        <div className="ratings__container">
+          <Ratings movie={movie} />
+        </div>
+      )}
+
       <div className="body">
         <h3>{movie.title}</h3>
         <p dangerouslySetInnerHTML={{ __html: movie.description }} />
@@ -49,6 +43,7 @@ function Card({ movie }: CardProps) {
       <Link
         href="/movies/[genre]/[slug]"
         as={`/movies/${movie.genre.slug}/${movie.slug}`}
+        scroll={false}
       >
         <a>More about this movie</a>
       </Link>
@@ -63,17 +58,27 @@ const CardStyled = styled.div`
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  .ratings__container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
   .body {
     padding: 10px;
+    p {
+      height: 125px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
   }
   .card-image {
     width: 100%;
     object-fit: cover;
+    height: 50vh;
     ${theme.mq[0]} {
       height: 30vh;
     }
     ${theme.mq[2]} {
-      height: 40vh;
+      height: 60vh;
     }
   }
   a {

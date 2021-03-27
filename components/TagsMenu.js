@@ -3,23 +3,6 @@ import styled from '@emotion/styled'
 import Link from 'next/link'
 import { AnimatePresence, motion } from 'framer-motion'
 
-const tagsMock = [
-  {
-    id: 1,
-    name: 'College Humor',
-    url: '/test',
-    media: 'Television',
-    type: 'media for dummies',
-  },
-  {
-    id: 2,
-    name: 'Fireship',
-    url: '/test',
-    media: '',
-    type: 'meddia for dummies',
-  },
-]
-
 const container = {
   hidden: { opacity: 0 },
   show: {
@@ -57,12 +40,13 @@ const TagsMenu = ({ tags }) => {
 
 const TagsContainer = styled.div`
   display: flex;
-
+  margin-bottom: 50px;
+  margin-top: 20px;
   .tag-button {
     color: white;
     background-color: #151c59;
     padding: 10px;
-    margin: 10px;
+    margin-right: 10px;
     border-radius: 30px;
     text-decoration: none;
   }

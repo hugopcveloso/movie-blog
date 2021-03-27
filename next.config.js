@@ -11,6 +11,9 @@ const config = {
     API_URL: process.env.API_URL,
   },
 
+  images: {
+    domains: ['assets.vercel.com', 'localhost'],
+  },
   webpack: config => {
     config.node = {
       fs: 'empty',

@@ -14,7 +14,7 @@ function Header({ isDark }) {
             <Link href="/">
               <a>
                 <img src="/static/images/logo.svg" alt="Sites Logo" />
-                <span className="logo-text">Next Movies</span>
+                <span className="logo-text">Media I watched</span>
               </a>
             </Link>
           </div>

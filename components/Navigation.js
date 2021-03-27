@@ -42,6 +42,7 @@ const NavigationStyled = styled.div`
         text-decoration: underline;
       }
       &.active {
+        font-weight: bold;
         color: black;
       }
     }

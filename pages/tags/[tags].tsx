@@ -1,7 +1,7 @@
 import getConfig from 'next/config'
 import { Box, Flex } from 'reflexbox'
 import Card from '../../components/Card'
-
+import {motion} from 'framer-motion'
 export interface MovieProps {
   id: number
   title: string
@@ -24,8 +24,16 @@ export interface TagProps {
 }
 
 const Details = ({ tag }: Tag) => {
+  const config = {
+    type: 'spring',
+    damping: 20,
+    stiffness: 100,
+  }
   return (
-    <div className="container">
+    <motion.div  transition={config}
+    initial={{ scale: 0, opacity: 0 }}
+    animate={{ scale: 1, opacity: 1 }}
+    exit={{ x: 0, opacity: 0 }} className="container">
       <Box>
         <h1>{tag.tag_name}</h1>
       </Box>
@@ -43,7 +51,7 @@ const Details = ({ tag }: Tag) => {
           )
         })}
       </Flex>
-    </div>
+    </motion.div>
   )
 }
 const { publicRuntimeConfig } = getConfig()

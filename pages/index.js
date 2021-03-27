@@ -6,12 +6,17 @@ import styled from '@emotion/styled'
 import { useRouter } from 'next/router'
 import useTranslation from 'next-translate/useTranslation'
 import TagsMenu from 'components/TagsMenu'
+import { motion } from 'framer-motion'
 
 const Home = ({ movies, tags }) => {
   let { t } = useTranslation()
-  console.log(t('common:title'))
+  const config = {
+    type: 'spring',
+    damping: 100,
+    stiffness: 100,
+  }
   return (
-    <HomeStyled className="container">
+    <HomeStyled as={motion.div} transition={config} className="container">
       <Box my={40} as="h2">
         {t('common:title')}
       </Box>
@@ -25,8 +30,11 @@ const Home = ({ movies, tags }) => {
         mb={100}
         flexWrap="wrap"
       >
+        {/* TODO: http://localhost:1337/movies?_sort=title:DESC
+        
+        */}
         {movies.map(movie => (
-          <Box key={movie.id} width={{ _: '100%', 1: '30%' }}>
+          <Box as={motion.div} key={movie.id} width={{ _: '100%', 1: '30%' }}>
             <Card movie={movie} />
           </Box>
         ))}

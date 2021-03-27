@@ -8,7 +8,7 @@ breakpoints.xxl = breakpoints[4]
 
 const mqbreakpoints = [360, 768, 1024, 1280, 1600]
 
-const mq = mqbreakpoints.map(bp => `@media (min-width: ${bp}px)`)
+const mq = mqbreakpoints.map(bp => `@media (max-width: ${bp}px)`)
 
 export default {
   colors: {

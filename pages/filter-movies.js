@@ -13,7 +13,6 @@ const getMovies = async key => {
   const actorsQueryString = actorsIds.join('&')
   // & -> OR
   // $ -> AND
-  console.log(actorsQueryString)
 
   if (genreId && actorsQueryString) {
     const res = await fetch(
