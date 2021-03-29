@@ -47,7 +47,7 @@ const HomeStyled = styled.div``
 
 export async function getServerSideProps() {
   const API_URL = process.env.API_URL
-  const res = await fetch(`${API_URL}/movies`)
+  const res = await fetch(`${API_URL}/movies?_sort=title:DESC`)
   const data = await res.json()
 
   const fetchTags = await fetch(`${API_URL}/tags`)
