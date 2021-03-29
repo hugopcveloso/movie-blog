@@ -3,8 +3,8 @@ import React from 'react'
 import styled from '@emotion/styled'
 import Link from 'next/link'
 import theme from '../theme/theme'
-import Ratings from 'components/Ratings'
-import IMovie from './interfaces/interfaces'
+import Ratings from './Ratings'
+import { IMovie } from './interfaces/interfaces'
 
 function Card({ movie }: IMovie) {
   const API_URL = process.env.API_URL
