@@ -33,7 +33,7 @@ const Home = ({ movies, tags }) => {
         {/* TODO: http://localhost:1337/movies?_sort=title:DESC
         
         */}
-        {movies.map(movie => (
+        {movies?.map(movie => (
           <Box as={motion.div} key={movie.id} width={{ _: '100%', 1: '30%' }}>
             <Card movie={movie} />
           </Box>
