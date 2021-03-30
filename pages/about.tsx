@@ -9,10 +9,10 @@ export interface AboutProps {
 function About({ page }: AboutProps) {
   const SEO = {
     title: page?.title,
-    description: 'Just your normal about page',
+    description: 'A website about all the media I watch',
     openGraph: {
       title: page?.title,
-      description: 'Just your normal about page',
+      description: 'A website about all the media I watch',
     },
   }
   return (
