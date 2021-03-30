@@ -1,5 +1,6 @@
 export interface IMovie {
   movie: {
+    id: number
     title: string
     genre: {
       slug?: string

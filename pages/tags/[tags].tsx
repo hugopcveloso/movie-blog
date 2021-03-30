@@ -1,27 +1,21 @@
 import getConfig from 'next/config'
 import { Box, Flex } from 'reflexbox'
 import Card from '../../components/Card'
-import {motion} from 'framer-motion'
-export interface MovieProps {
-  id: number
-  title: string
-  genre: {
-    slug?: string
-  }
-  slug: string
-  poster: {
-    url: string
-  }
-  description: string
-}
+import { motion } from 'framer-motion'
+import { IMovie } from '../../components/interfaces/interfaces'
+
 export interface Tag {
   tag: TagProps
 }
 
 export interface TagProps {
   tag_name: string
-  movies: MovieProps[]
+  slug: string
+  movies: IMovie[]
 }
+// 200
+
+console.log()
 
 const Details = ({ tag }: Tag) => {
   const config = {
@@ -30,10 +24,13 @@ const Details = ({ tag }: Tag) => {
     stiffness: 100,
   }
   return (
-    <motion.div  transition={config}
-    initial={{ scale: 0, opacity: 0 }}
-    animate={{ scale: 1, opacity: 1 }}
-    exit={{ x: 0, opacity: 0 }} className="container">
+    <motion.div
+      transition={config}
+      initial={{ scale: 0, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      exit={{ x: 0, opacity: 0 }}
+      className="container"
+    >
       <Box>
         <h1>{tag.tag_name}</h1>
       </Box>
@@ -43,7 +40,8 @@ const Details = ({ tag }: Tag) => {
         mb={100}
         flexWrap="wrap"
       >
-        {tag.movies.map((movie: MovieProps) => {
+        {tag.movies.map((movie: IMovie['movie']) => {
+          console.log(movie)
           return (
             <Box key={movie.id} width={{ _: '100%', 1: '30%' }}>
               <Card movie={movie} />
