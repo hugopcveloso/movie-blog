@@ -40,8 +40,7 @@ const Details = ({ tag }: Tag) => {
         mb={100}
         flexWrap="wrap"
       >
-        {tag.movies.map((movie: IMovie['movie']) => {
-          console.log(movie)
+        {tag.movies.map((movie: any) => {
           return (
             <Box key={movie.id} width={{ _: '100%', 1: '30%' }}>
               <Card movie={movie} />
